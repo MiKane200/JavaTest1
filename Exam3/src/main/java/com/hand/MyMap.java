@@ -28,7 +28,7 @@ public class MyMap {
         Random random = new Random();
         List list=new ArrayList();
         for (int i=0;i<50;i++){
-            int temp = random.nextInt(9)+1;
+            int temp = random.nextInt(99)+1;
             list.add(temp);
         }
 

@@ -6,17 +6,19 @@ public class MapToSortedMapFactory implements CaculatorFactory {
 
     @Override
     public MyMap caculate(MyMap mymap) {
-        Map<Integer, int[]> map = mymap.getMap();
+        Map<Integer, ArrayList> map = mymap.getMap();
         for (Integer key:map.keySet()) {
 
-            int[] arr = map.get(key);
+            ArrayList arr = map.get(key);
             //排序数组
-            for(int i=0;i<arr.length;i++) {
-                for (int j = 0; j < arr.length; j++) {
-                    if (arr[i] > arr[j]) {
-                        int temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = arr[i];
+            for(int i=0;i<arr.size();i++) {
+                for (int j = 0; j < arr.size(); j++) {
+                    int ii = (Integer) arr.get(i);
+                    int jj = (Integer) arr.get(j);
+                    if (ii>jj) {
+                        int temp = ii;
+                        arr.set(i,jj);
+                        arr.set(j,temp);
                     }
                 }
             }
